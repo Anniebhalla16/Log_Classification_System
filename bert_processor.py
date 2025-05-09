@@ -5,7 +5,7 @@ transformer_model = SentenceTransformer('all-MiniLM-L6-v2')
 
 classifier_model = joblib.load("models/log-classifier.joblib")
 
-def clasify_with_bert(log_message):
+def classify_with_bert(log_message):
     message_embedding= transformer_model.encode(log_message)
     probabilities =classifier_model.predict_proba([message_embedding])[0]
     if max(probabilities) < 0.5 :
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         "Server A790 was restarted unexpectedly during the process of data transfer"
     ]
     for log in logs:
-     label= clasify_with_bert(log)
+     label= classify_with_bert(log)
      print(log, '->', label)
 
 
