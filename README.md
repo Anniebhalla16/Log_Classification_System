@@ -1,2 +1,2 @@
-# Log Classification with Hybrid Classification Model
+# Log Classification with Hybrid Classification Framework
 
